@@ -1,5 +1,9 @@
 const mongoose = require('mongoose')
 
+const CommentSchema = mongoose.Schema({
+  comment: String
+})
+
 const SerieSchema = mongoose.Schema({
   name: {
     type: String,
@@ -9,7 +13,7 @@ const SerieSchema = mongoose.Schema({
     type: String,
     enumValues: [ 'to-watch', 'watching', 'watched' ]
   },
-  comments: []
+  comments: [CommentSchema]
 })
 
 const Serie = mongoose.model('Serie', SerieSchema)

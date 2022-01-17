@@ -1,5 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const bodyParser = require('body-parser')
 
 const app = express()
 
@@ -10,6 +11,8 @@ const mongo = process.env.MONGODB || 'mongodb://localhost/minhas-series'
 
 const series = require('./routes/series')
 
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
 app.use('/series', series)
 
 mongoose
