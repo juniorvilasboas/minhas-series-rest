@@ -1,0 +1,22 @@
+{
+  "name": "minhas-series-rest",
+  "version": "1.0.0",
+  "description": "ApiRest de minhas series",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juniorvilasboas/minhas-series-rest.git"
+  },
+  "author": "Moacyr Santana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juniorvilasboas/minhas-series-rest/issues"
+  },
+  "homepage": "https://github.com/juniorvilasboas/minhas-series-rest#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
