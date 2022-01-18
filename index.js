@@ -2,9 +2,12 @@ const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const jwt = require('jsonwebtoken')
+const cors = require('cors')
+require('dotenv').config()
 
 const User = require('./models/user')
 
+const users = require('./routes/users')
 const series = require('./routes/series')
 
 const app = express()
@@ -16,6 +19,17 @@ const mongo = process.env.MONGODB || 'mongodb://localhost/minhas-series'
 const jwtSecret = '123abc123abc123abc'
 
 app.use(bodyParser.json())
+app.use(cors({
+  origin: (origin, callback) => {
+    if(origin === 'http://server2:8080') {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by Cors'))
+    }
+  }
+}))
+
+app.use('/users', users)
 app.use('/series', series)
 
 app.post('/auth', async (req, res) => {
